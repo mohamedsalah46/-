@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173d32">
+  <meta name="description" content="أذكار الصباح والمساء من القرآن والسنة مع عداد سهل ومصادر التخريج.">
+  <title>أذكار المسلم</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#" id="brandHome" aria-label="الصفحة الرئيسية">
+      <span class="brand-mark">۞</span>
+      <span>أذكار المسلم</span>
+    </a>
+    <button class="icon-button" id="themeToggle" type="button" aria-label="تغيير المظهر" title="تغيير المظهر">☾</button>
+  </header>
+
+  <main class="app-shell">
+    <section id="homeScreen" class="screen home-screen">
+      <div class="hero-ornament" aria-hidden="true">۞</div>
+      <p class="eyebrow">وَرْدُكَ اليومي</p>
+      <h1>اذكر الله<br><span>واطمئن قلبك</span></h1>
+      <p class="intro">أذكار الصباح والمساء من القرآن الكريم والسنة النبوية، بنصوصها وأعدادها ومصادرها.</p>
+
+      <div class="choice-grid">
+        <button class="choice-card morning-card" data-mode="morning" type="button">
+          <span class="choice-icon">☀</span>
+          <span class="choice-title">أذكار الصباح</span>
+          <span class="choice-subtitle">ابدأ يومك بذكر الله</span>
+          <span class="choice-arrow">←</span>
+        </button>
+        <button class="choice-card evening-card" data-mode="evening" type="button">
+          <span class="choice-icon">☾</span>
+          <span class="choice-title">أذكار المساء</span>
+          <span class="choice-subtitle">اختم يومك بذكر الله</span>
+          <span class="choice-arrow">←</span>
+        </button>
+      </div>
+
+      <div class="home-note">
+        <span class="note-icon">✦</span>
+        <p>النصوص والأعداد مرتبطة بمراجعها، ولا يُضاف عدد تعبدي إلا بدليل.</p>
+      </div>
+      <button class="text-button" id="sourcesHome" type="button">منهج التوثيق والمصادر</button>
+    </section>
+
+    <section id="dhikrScreen" class="screen dhikr-screen hidden" aria-live="polite">
+      <div class="session-header">
+        <button class="back-button" id="backHome" type="button"><span>→</span> القائمة الرئيسية</button>
+        <span class="session-label" id="sessionLabel">أذكار الصباح</span>
+      </div>
+
+      <div class="progress-area">
+        <div class="progress-copy">
+          <span id="itemPosition">الذكر 1 من 1</span>
+          <span id="completionText">0% مكتمل</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+
+      <article class="dhikr-card">
+        <div class="card-topline">
+          <span class="ornament-small">۞</span>
+          <span class="dhikr-category" id="dhikrCategory">ذكر مأثور</span>
+          <button class="icon-button copy-button" id="copyDhikr" type="button" title="نسخ الذكر" aria-label="نسخ الذكر">▢</button>
+        </div>
+        <h2 id="dhikrTitle" class="dhikr-title"></h2>
+        <div id="dhikrText" class="dhikr-text" lang="ar"></div>
+        <div class="source-panel">
+          <div class="source-heading">المصدر والتخريج</div>
+          <p id="dhikrSource"></p>
+          <p id="dhikrGrade" class="grade-line"></p>
+          <p id="dhikrNote" class="dhikr-note"></p>
+        </div>
+      </article>
+
+      <section class="counter-section" aria-label="عداد التكرار">
+        <div class="counter-caption" id="counterCaption">عدد مرات التكرار</div>
+        <button id="counterButton" class="counter-ring" type="button" aria-label="اضغط لتسجيل تكرار الذكر">
+          <span class="counter-number" id="counterNumber">3</span>
+          <span class="counter-remaining">متبقي</span>
+          <span class="ring-hint">اضغط هنا</span>
+        </button>
+        <div class="counter-meta">
+          <span id="targetCount">المطلوب: 3 مرات</span>
+          <span id="doneCount">تم: 0</span>
+        </div>
+      </section>
+
+      <div class="controls">
+        <button class="secondary-button" id="previousButton" type="button">السابق</button>
+        <button class="skip-button" id="skipButton" type="button">تخطي الذكر</button>
+        <button class="secondary-button" id="restartButton" type="button">إعادة</button>
+      </div>
+      <p class="tap-hint">عند اكتمال العدد ينتقل الموقع تلقائيًا إلى الذكر التالي.</p>
+    </section>
+
+    <section id="doneScreen" class="screen done-screen hidden">
+      <div class="done-seal">✓</div>
+      <p class="eyebrow">تقبّل الله منك</p>
+      <h2>أتممت وِردك</h2>
+      <p id="doneMessage" class="intro">الحمد لله الذي بنعمته تتم الصالحات.</p>
+      <button class="primary-button" id="repeatSession" type="button">إعادة الورد</button>
+      <button class="secondary-button full-button" id="doneHome" type="button">العودة للرئيسية</button>
+    </section>
+
+    <section id="sourcesScreen" class="screen sources-screen hidden">
+      <div class="session-header">
+        <button class="back-button" id="sourcesBack" type="button"><span>→</span> رجوع</button>
+        <span class="session-label">التوثيق</span>
+      </div>
+      <h2>منهج التوثيق</h2>
+      <p>اقتصر هذا الإصدار على أذكار وردت في القرآن أو في أحاديث صحيحة أو حسنة بحسب التخريج المشار إليه بجوار كل ذكر. قد تختلف أحكام بعض الأحاديث أو ألفاظها بين أهل العلم؛ لذلك أُظهر المرجع والحكم بدل إخفائهما.</p>
+      <ul class="source-list">
+        <li>صحيح البخاري وصحيح مسلم.</li>
+        <li>سنن أبي داود وجامع الترمذي وسنن ابن ماجه، مع بيان الحكم المنقول في المصادر المشار إليها.</li>
+        <li>لا يُحوَّل الذكر الوارد بلا عدد إلى عدد تعبدي محدد. كما لا يُنقل عدد ذكر يومي عام إلى الصباح والمساء دون نص.</li>
+      </ul>
+      <p class="source-disclaimer">هذه قائمة مختارة وليست حصرًا لجميع الأذكار الواردة. راجع تخريج كل ذكر في بطاقته، ويمكن مراجعة المصادر التالية:</p>
+      <a href="https://islamqa.info/ar/answers/217496" target="_blank" rel="noopener">الإسلام سؤال وجواب: أذكار الصباح والمساء</a>
+      <a href="https://alquranalkareem.online/adhkar" target="_blank" rel="noopener">نصوص الأذكار وتخريجها</a>
+      <a href="https://ayahlihalik.com/adhkar/" target="_blank" rel="noopener">أذكار الصباح والمساء مع المراجع</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>اللهم أعنّا على ذكرك وشكرك وحسن عبادتك</span>
+    <span class="footer-flower">✧</span>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
